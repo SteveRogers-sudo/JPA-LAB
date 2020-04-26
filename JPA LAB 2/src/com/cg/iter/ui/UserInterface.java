@@ -30,49 +30,57 @@ public class UserInterface {
 				
 				case 2:
 					//GET ALL BOOKS BY AUTHOR
-					System.out.println("Enter Author Name:");
-					String authorName=sc.next();
-					List<Book> bookByAuthor;
 					try {
+						System.out.println("Enter Author Name:");
+						String authorName=sc.next();
+						List<Book> bookByAuthor;
 						bookByAuthor = service.getAllBookByAuthor(authorName);
 						System.out.println(bookByAuthor);
 					} catch (BookAuthorException e1) {
 						// TODO Auto-generated catch block
-						e1.printStackTrace();
+						System.out.println("No books exist with given author name");
+					} catch ( InputMismatchException e) {
+						System.out.println("Enter valid input");
 					}
 					
 					break;
 					
 				case 3:
 					//GET BOOKS BY PRICE RANGE
-					System.out.println("Enter min price");
-					int minPrice=sc.nextInt();
-					System.out.println("Enter max price");
-					int maxPrice=sc.nextInt();
-					List<Book> bookByPriceRange;
 					try {
+						List<Book> bookByPriceRange;
+						System.out.println("Enter min price");
+						int minPrice=sc.nextInt();
+						System.out.println("Enter max price");
+						int maxPrice=sc.nextInt();
 						bookByPriceRange = service.getAllBooksInRange(minPrice, maxPrice);
 						System.out.println("Book Details:");
 						System.out.println(bookByPriceRange);
 					} catch (BookAuthorException e) {
 						// TODO Auto-generated catch block
-						e.printStackTrace();
+						System.out.println("No books exist within given range");
+					} catch ( InputMismatchException e) {
+						System.out.println("Enter valid input");
 					}
+					
 					
 					break;
 					
 				case 4:
 					//GET AUTHORS BY ISBN
-					System.out.println("Enter book ISBN");
-					int isbn= sc.nextInt();
-					String author;
+					
 					try {
+						System.out.println("Enter book ISBN");
+						int isbn= sc.nextInt();
+						String author;
 						author = service.getAuthorsByISBN(isbn);
 						System.out.println("Book isbn: "+isbn);
 						System.out.println("Author Name :"+author);
 					} catch (BookAuthorException e) {
 						// TODO Auto-generated catch block
-						e.printStackTrace();
+						System.out.println("please enter a valid isbn");
+					}	catch ( InputMismatchException e) {
+						System.out.println("Enter valid input");
 					}
 					
 					break;
