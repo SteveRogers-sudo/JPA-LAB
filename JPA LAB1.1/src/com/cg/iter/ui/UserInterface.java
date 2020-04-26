@@ -36,11 +36,12 @@ public class UserInterface {
 						System.out.println("Author added");
 					else
 						System.out.println("Could not add author");
-					break;
+					
 				} catch (InputMismatchException e) {
 					// TODO Auto-generated catch block
 					System.out.println("Enter valid data");
 				}
+				break;
 			
 			case 2:
 				//UPDATE AUTHOR
@@ -70,12 +71,13 @@ public class UserInterface {
 					else
 						System.out.println("Could not update author");
 					}
-					break;
+					
 				} catch (InputMismatchException e) {
 					// TODO Auto-generated catch block
 					System.out.println("Enter valid data");
 				}
-			
+				break;
+					
 			case 3:
 				//DELETE AUTHOR
 				try {
@@ -87,11 +89,12 @@ public class UserInterface {
 						System.out.println("Author deleted");
 					else
 						System.out.println("Could not delete author");
-					break;
+					
 				} catch (InputMismatchException e) {
 					// TODO Auto-generated catch block
 					System.out.println("Enter valid data");
 				}
+				break;
 				
 			case 4:
 				//EXIT
