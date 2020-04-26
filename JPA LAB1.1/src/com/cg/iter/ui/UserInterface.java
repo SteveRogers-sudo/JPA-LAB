@@ -18,63 +18,80 @@ public class UserInterface {
 			switch (choice) {
 			case 1:
 				//ADD AUTHOR
-				System.out.println("Add Author !");
-				Author author = new Author();
-				System.out.println("Enter First Name :");
-				author.setFirstName(sc.next());
-				System.out.println("Enter Middle Name");
-				author.setMiddleName(sc.next());
-				System.out.println("Enter Last Name");
-				author.setLastName(sc.next());
-				System.out.println("Enter Phone number");
-				author.setPhoneNo(sc.nextLong());
-				
-				boolean success = service.create(author);
-				if(success)
-					System.out.println("Author added");
-				else
-					System.out.println("Could not add author");
-				break;
+				Author author;
+				try {
+					System.out.println("Add Author !");
+					author = new Author();
+					System.out.println("Enter First Name :");
+					author.setFirstName(sc.next());
+					System.out.println("Enter Middle Name");
+					author.setMiddleName(sc.next());
+					System.out.println("Enter Last Name");
+					author.setLastName(sc.next());
+					System.out.println("Enter Phone number");
+					author.setPhoneNo(sc.nextLong());
+					
+					boolean success = service.create(author);
+					if(success)
+						System.out.println("Author added");
+					else
+						System.out.println("Could not add author");
+					break;
+				} catch (InputMismatchException e) {
+					// TODO Auto-generated catch block
+					System.out.println("Enter valid data");
+				}
 			
 			case 2:
 				//UPDATE AUTHOR
-				System.out.println("Update Author !");
-				System.out.println("Enter Author ID :");
-				int id = sc.nextInt();
-				author = service.findauthor(id);
-				if(author != null) {
-					System.out.println("Author exist");
-				System.out.println(author.toString());
-				
-				author.setAuthorId(author.getAuthorId());
-				System.out.println("Enter First Name :");
-				author.setFirstName(sc.next());
-				System.out.println("Enter Middle Name");
-				author.setMiddleName(sc.next());
-				System.out.println("Enter Last Name");
-				author.setLastName(sc.next());
-				System.out.println("Enter Phone number");
-				author.setPhoneNo(sc.nextLong());
-				
-				Author update = service.update(author);
-				if(update!=null)
-					System.out.println("Author Updated");
-				else
-					System.out.println("Could not update author");
+				int id;
+				try {
+					System.out.println("Update Author !");
+					System.out.println("Enter Author ID :");
+					id = sc.nextInt();
+					author = service.findauthor(id);
+					if(author != null) {
+						System.out.println("Author exist");
+					System.out.println(author.toString());
+					
+					author.setAuthorId(author.getAuthorId());
+					System.out.println("Enter First Name :");
+					author.setFirstName(sc.next());
+					System.out.println("Enter Middle Name");
+					author.setMiddleName(sc.next());
+					System.out.println("Enter Last Name");
+					author.setLastName(sc.next());
+					System.out.println("Enter Phone number");
+					author.setPhoneNo(sc.nextLong());
+					
+					Author update = service.update(author);
+					if(update!=null)
+						System.out.println("Author Updated");
+					else
+						System.out.println("Could not update author");
+					}
+					break;
+				} catch (InputMismatchException e) {
+					// TODO Auto-generated catch block
+					System.out.println("Enter valid data");
 				}
-				break;
 			
 			case 3:
 				//DELETE AUTHOR
-				System.out.println("Delete Author !");
-				System.out.println("Enter Author ID :");
-				id = sc.nextInt();
-				boolean delete = service.deleteauthor(id);
-				if(delete)
-					System.out.println("Author deleted");
-				else
-					System.out.println("Could not delete author");
-				break;
+				try {
+					System.out.println("Delete Author !");
+					System.out.println("Enter Author ID :");
+					id = sc.nextInt();
+					boolean delete = service.deleteauthor(id);
+					if(delete)
+						System.out.println("Author deleted");
+					else
+						System.out.println("Could not delete author");
+					break;
+				} catch (InputMismatchException e) {
+					// TODO Auto-generated catch block
+					System.out.println("Enter valid data");
+				}
 				
 			case 4:
 				//EXIT
