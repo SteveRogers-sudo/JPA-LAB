@@ -10,11 +10,10 @@ import com.cg.iter.service.AuthorServiceImpl;
 public class UserInterface {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		do {
 		AuthorService service = new AuthorServiceImpl();
 		Scanner sc = new Scanner(System.in);
 		int choice = 0;
-		while (true) {
 			choice = getChoice(sc);
 			switch (choice) {
 			case 1:
@@ -87,10 +86,9 @@ public class UserInterface {
 				System.out.println("Enter 1-5 only");
 				break;
 			}
-		}
+		}while(true);
 
-	}
-
+	}	
 	private static int getChoice(Scanner sc) {
 		int choice = 0;
 		System.out.println("----AUTHOR MENU------");
